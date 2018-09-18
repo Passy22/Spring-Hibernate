@@ -1,12 +1,13 @@
 package com.luv2code.springdemo;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope("prototype")
 public class TennisCoach implements Coach{
 	
 	@Autowired
@@ -23,6 +24,18 @@ public class TennisCoach implements Coach{
 	
 	public  TennisCoach() {
 		System.out.println(">> TennisCoach: Estás dentro del constructor por defecto");
+	}
+	
+	// Definimos el metodo init
+	@PostConstruct
+	public void doMyStartupStuff() {
+		System.out.println(">> TennisCoach: inside of doMyStartupStuff()");
+	}
+	
+	// Definimos el metodo destroy 
+	@PreDestroy
+	public void doMyCleanupStuff()  {
+		System.out.println(">> TennisCoach: inside of doMyCleanupStuff");
 	}
 	
 
