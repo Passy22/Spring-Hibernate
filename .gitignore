@@ -1,5 +1,7 @@
 target/
 bin/
+lib/
+
 
 ### STS ###
 .apt_generated
